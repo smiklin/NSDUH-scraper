@@ -8,26 +8,24 @@ library(RSelenium)
 
 # replace the following with the directory into which you want to download the data
 # the code will create a folder for each year of data downloaded and then later combine it
-target_directory <- "/Users/suikai/Desktop/suicide attempt:ideation"
 
-#the code uses Firefox—make sure you have it installed to run the code
-fprof <- makeFirefoxProfile(list(browser.download.dir = dirdownload,
-                                 browser.download.folderList = 2L,
-                                 browser.download.manager.showWhenStarting = FALSE,
-                                 browser.helperApps.neverAsk.saveToDisk = "application/x-bzip2"))
+target_directory <- ""
+#the code uses Firefox--make sure you have it installed to run the code
+
 
 # data setup
+
 # NSDUH allows you to chose a row and a column variable
-# row should be the names of variables of interests
+# rows should be the names of variables of interests
 # columns should be different demographic
-# also enable potential 'control variable' which will split data e.g. by sex
+# You can also chose a 'control variable' which will split data e.g. by sex
 # current code allows for a single control variable only
 
 year_start <- 2008
 year_end <- 2018
 
-row <- c("SUICPLAN", "SUICTRY", "SUICTHNK")
-column <- c("CATAG3", "AGE2")
+row <- c("variable1", "variable2") #include at least one variable as named in NSDUH
+column <- c("variable1", "variable2") #include at least one variable as named in NSDUH
 
 control = "" #optional
 
